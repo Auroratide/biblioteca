@@ -5,9 +5,9 @@ import java.util.ArrayList;
 
 public class Biblioteca {
     private PrintStream printStream;
-    private ArrayList<String> library;
+    private ArrayList<Book> library;
 
-    public Biblioteca(PrintStream printStream, ArrayList<String> initialLibrary) {
+    public Biblioteca(PrintStream printStream, ArrayList<Book> initialLibrary) {
         this.printStream = printStream;
         this.library = initialLibrary;
     }
@@ -18,7 +18,7 @@ public class Biblioteca {
     }
 
     private void printLibraryList() {
-        for(String book : library)
-            printStream.println(book);
+        for(Book book : library)
+            printStream.println(book.detailsInRow());
     }
 }
