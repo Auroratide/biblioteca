@@ -6,9 +6,8 @@ import org.junit.Test;
 import java.io.PrintStream;
 import java.util.ArrayList;
 
-import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.assertThat;
 import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 
 
@@ -16,6 +15,9 @@ public class BibliotecaTest {
 
     private PrintStream printStream;
     private Biblioteca biblioteca;
+    private Book book1;
+    private Book book2;
+    private Book book3;
 
     private ArrayList<Book> makeEmptyLibrary() {
         return new ArrayList<Book>();
@@ -23,9 +25,9 @@ public class BibliotecaTest {
 
     private ArrayList<Book> makePopulatedLibrary() {
         ArrayList<Book> library = makeEmptyLibrary();
-        library.add(new Book("Book 1", "John Doe", 2016));
-        library.add(new Book("Book 2", "John Deer", 2015));
-        library.add(new Book("Book 3", "Mr. Mime", 2013));
+        library.add(book1);
+        library.add(book2);
+        library.add(book3);
         return library;
     }
 
@@ -34,6 +36,9 @@ public class BibliotecaTest {
         printStream = mock(PrintStream.class);
         biblioteca = new Biblioteca(printStream, makePopulatedLibrary());
 
+        book1 = mock(Book.class);
+        book2 = mock(Book.class);
+        book3 = mock(Book.class);
     }
 
     @Test
@@ -45,9 +50,10 @@ public class BibliotecaTest {
     @Test
     public void shouldSeeListOfBooksInLibraryAfterWelcome() {
         biblioteca.start();
-        verify(printStream).println("Book 1");
-        verify(printStream).println("Book 2");
-        verify(printStream).println("Book 3");
+
+        verify(book1).print();
+        verify(book2).print();
+        verify(book3).print();
     }
 
     @Test
