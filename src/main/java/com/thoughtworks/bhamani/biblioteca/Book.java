@@ -6,10 +6,10 @@ public class Book {
 
     private String title;
     private String author;
-    private int yearPublished;
+    private String yearPublished;
     private PrintStream printStream;
 
-    public Book(String title, String author, int yearPublished, PrintStream printStream) {
+    public Book(String title, String author, String yearPublished, PrintStream printStream) {
         this.title = title;
         this.author = author;
         this.yearPublished = yearPublished;

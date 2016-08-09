@@ -7,7 +7,6 @@ import java.io.PrintStream;
 import java.util.ArrayList;
 
 import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 
 
@@ -34,11 +33,11 @@ public class BibliotecaTest {
     @Before
     public void setUp() throws Exception {
         printStream = mock(PrintStream.class);
-        biblioteca = new Biblioteca(printStream, makePopulatedLibrary());
 
         book1 = mock(Book.class);
         book2 = mock(Book.class);
         book3 = mock(Book.class);
+        biblioteca = new Biblioteca(printStream, makePopulatedLibrary());
     }
 
     @Test
@@ -54,16 +53,6 @@ public class BibliotecaTest {
         verify(book1).print();
         verify(book2).print();
         verify(book3).print();
-    }
-
-    @Test
-    public void shouldSeeBookDetailsWhenBookListIsPrinted() {
-        String title = "Book 1";
-        String author = "John Doe";
-        int yearPublished = 2016;
-        String details = title + " | " + author + " | " + yearPublished;
-        biblioteca.start();
-        verify(printStream).println(details);
     }
 
 
