@@ -10,6 +10,6 @@ public class Biblioteca {
     }
 
     public void start() {
-        System.out.println("Welcome!");
+        printStream.println("Welcome!");
     }
 }
