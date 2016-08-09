@@ -14,9 +14,10 @@ public class Biblioteca {
 
     public void start() {
         printStream.println("Welcome!");
+        printLibraryList();
     }
 
-    public void printLibraryList() {
+    private void printLibraryList() {
         for(String book : library)
             printStream.println(book);
     }

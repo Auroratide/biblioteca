@@ -30,7 +30,9 @@ public class BibliotecaTest {
 
     @Test
     public void shouldSeeListOfBooksInLibraryAfterWelcome() {
-        biblioteca.printLibraryList();
+        biblioteca.start();
+        verify(printStream).println("Book 1");
+        verify(printStream).println("Book 2");
         verify(printStream).println("Book 3");
     }
 
